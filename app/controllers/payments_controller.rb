@@ -2,6 +2,7 @@ class PaymentsController < ApplicationController
 	before_action :set_current_loan
 
 	rescue_from ActiveRecord::RecordNotFound do |exception|
+		Rails.logger.error("record not found")
 		render json: 'not_found', status: :not_found
 	end
 
@@ -10,6 +11,7 @@ class PaymentsController < ApplicationController
 	end
 
 	def show
+		Rails.logger.info("in payments show")
 		render json: Payment.find(params[:id])
 	end
 

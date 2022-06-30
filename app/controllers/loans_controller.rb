@@ -9,6 +9,7 @@ class LoansController < ActionController::API
   end
 
   def show
+  	Rails.logger.info("no loans with the id")
     render json: Loan.find(params[:id])
   end
 end
