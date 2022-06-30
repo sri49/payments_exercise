@@ -5,10 +5,11 @@ class LoansController < ActionController::API
   end
 
   def index
-    render json: Loan.all
+    render json: Loan.all_balance
   end
 
   def show
+  	Rails.logger.info("no loans with the id")
     render json: Loan.find(params[:id])
   end
 end
